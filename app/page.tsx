@@ -1,101 +1,116 @@
-import Image from "next/image";
+import Link from "next/link"
+import { BookOpen, School, UserCheck } from "lucide-react"
 
-export default function Home() {
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="container mx-auto px-4 py-12">
+      <div className="mx-auto max-w-5xl text-center">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">On-Chain Certification System</h1>
+        <p className="mt-6 text-lg text-muted-foreground">
+          A secure and transparent platform for creating, validating, and verifying certifications using blockchain
+          technology.
+        </p>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <div className="mx-auto mt-16 grid max-w-4xl gap-8 md:grid-cols-3">
+        <Card className="flex flex-col">
+          <CardHeader>
+            <School className="mx-auto h-12 w-12 text-primary" />
+            <CardTitle className="text-center">Admin</CardTitle>
+            <CardDescription className="text-center">
+              Manage certifications, create exams, and update certification details.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex-1">
+            <ul className="list-disc space-y-2 pl-5 text-sm">
+              <li>Create new certifications</li>
+              <li>Create and manage exams</li>
+              <li>Update certification details</li>
+              <li>Deactivate exams</li>
+            </ul>
+          </CardContent>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link href="/admin/dashboard">Admin Dashboard</Link>
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <Card className="flex flex-col">
+          <CardHeader>
+            <UserCheck className="mx-auto h-12 w-12 text-primary" />
+            <CardTitle className="text-center">Validator</CardTitle>
+            <CardDescription className="text-center">Validate exams and certify students.</CardDescription>
+          </CardHeader>
+          <CardContent className="flex-1">
+            <ul className="list-disc space-y-2 pl-5 text-sm">
+              <li>Validate student exams</li>
+              <li>Mark exams as passed or failed</li>
+              <li>Provide digital signatures</li>
+            </ul>
+          </CardContent>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link href="/validator/dashboard">Validator Dashboard</Link>
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <Card className="flex flex-col">
+          <CardHeader>
+            <BookOpen className="mx-auto h-12 w-12 text-primary" />
+            <CardTitle className="text-center">Student</CardTitle>
+            <CardDescription className="text-center">
+              Register, enroll in exams, and claim certifications.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex-1">
+            <ul className="list-disc space-y-2 pl-5 text-sm">
+              <li>Register as a student</li>
+              <li>Enroll in exams</li>
+              <li>Claim earned certifications</li>
+              <li>View your certificates</li>
+            </ul>
+          </CardContent>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link href="/student/dashboard">Student Dashboard</Link>
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-4xl">
+        <Card>
+          <CardHeader>
+            <CardTitle>Institution Registration</CardTitle>
+            <CardDescription>Register your institution to start using the certification system</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button asChild className="w-full">
+              <Link href="/register">Register Institution</Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-4xl">
+        <Card>
+          <CardHeader>
+            <CardTitle>Certificate Verification</CardTitle>
+            <CardDescription>Verify the authenticity of a certificate</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button asChild className="w-full">
+              <Link href="/verify">Verify Certificate</Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
     </div>
-  );
+  )
 }
+
