@@ -2,22 +2,29 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { 
-  BookCheck, 
-  FilePlus, 
-  Settings, 
-  Zap 
+import {
+  BookCheck,
+  FilePlus,
+  Home,
+  Settings,
+  Zap
 } from 'lucide-react';
 
 // Mapping of icon names to actual icon components
 const iconMap = {
   BookCheck: BookCheck,
   FilePlus: FilePlus,
+  Home: Home,
   Settings: Settings,
   Zap: Zap
 };
 
 const defaultNavItems = [
+  {
+    title: "Homepage",
+    href: "/",
+    icon: "Home",
+  },
   {
     title: "Dashboard",
     href: "/admin/dashboard",
@@ -45,27 +52,27 @@ const defaultNavItems = [
   },
 ]
 
-export default function AdminDashboardLayout({ 
-  children, 
-  navItems = defaultNavItems 
-}: { 
-  children: React.ReactNode, 
-  navItems?: NavItem[] 
+export default function AdminDashboardLayout({
+  children,
+  navItems = defaultNavItems
+}: {
+  children: React.ReactNode,
+  navItems?: NavItem[]
 }) {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-100 min-h-screen p-4">
+      <div className="sidebar">
         <nav>
           {navItems.map((item) => {
             // Dynamically get the icon component
             const IconComponent = iconMap[item.icon as keyof typeof iconMap];
-            
+
             return (
-              <Link 
-                key={item.href} 
-                href={item.href} 
-                className="flex items-center p-2 hover:bg-gray-200 rounded"
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex items-center p-2 hover:bg-gray-200 rounded dark:hover:bg-gray-800 transition-colors duration -200 dark:hover:bg-gray-800 transition-colors duration -200"
               >
                 {IconComponent && <IconComponent className="mr-2" />}
                 {item.title}
