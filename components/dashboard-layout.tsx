@@ -69,7 +69,7 @@ export function DashboardLayout({ children, role, navItems }: DashboardLayoutPro
 
         <div className="flex w-full flex-col">
           <header className="sticky top-0 z-10 flex h-16 items-center border-b bg-background px-6">
-            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileOpen(true)}>
+            <Button className="md:hidden" onClick={() => setMobileOpen(true)}>
               <MenuIcon className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
@@ -88,8 +88,7 @@ export function DashboardLayout({ children, role, navItems }: DashboardLayoutPro
                   {navItems.map((item) => (
                     <Button
                       key={item.href}
-                      variant={pathname === item.href ? "secondary" : "ghost"}
-                      className="flex w-full justify-start"
+                      className="flex w-full justify-start data-[state=active]:bg-secondary"
                       asChild
                       onClick={() => setMobileOpen(false)}
                     >

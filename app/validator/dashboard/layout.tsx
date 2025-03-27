@@ -4,20 +4,27 @@ import React from 'react';
 import Link from 'next/link';
 import {
   CheckSquare,
-  Home
+  Home,
+  Settings
 } from 'lucide-react';
 
 // Mapping of icon names to actual icon components
 const iconMap = {
   CheckSquare: CheckSquare,
-  Home: Home
+  Home: Home,
+  Settings: Settings
 };
 
 const defaultNavItems = [
   {
+    title: "Homepage",
+    href: "/",
+    icon: "Home",
+  },
+  {
     title: "Dashboard",
     href: "/validator/dashboard",
-    icon: "Home",
+    icon: "Settings",
   },
   {
     title: "Validate Exam",
@@ -36,7 +43,7 @@ export default function AdminDashboardLayout({
   return (
     <div className="flex">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-100 min-h-screen p-4">
+      <div className="sidebar">
         <nav>
           {navItems.map((item) => {
             // Dynamically get the icon component

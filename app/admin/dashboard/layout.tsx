@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {
   BookCheck,
   FilePlus,
+  Home,
   Settings,
   Zap
 } from 'lucide-react';
@@ -13,11 +14,17 @@ import {
 const iconMap = {
   BookCheck: BookCheck,
   FilePlus: FilePlus,
+  Home: Home,
   Settings: Settings,
   Zap: Zap
 };
 
 const defaultNavItems = [
+  {
+    title: "Homepage",
+    href: "/",
+    icon: "Home",
+  },
   {
     title: "Dashboard",
     href: "/admin/dashboard",

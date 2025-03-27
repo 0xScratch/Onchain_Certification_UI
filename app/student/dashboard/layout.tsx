@@ -7,7 +7,8 @@ import {
   FileText,
   GraduationCap,
   Home,
-  User
+  User,
+  Settings
 } from 'lucide-react';
 
 // Mapping of icon names to actual icon components
@@ -16,14 +17,20 @@ const iconMap = {
   FileText: FileText,
   GraduationCap: GraduationCap,
   Home: Home,
-  User: User
+  User: User,
+  Settings: Settings
 };
 
 const studentNavItems = [
   {
+    title: "Homepage",
+    href: "/",
+    icon: "Home",
+  },
+  {
     title: "Dashboard",
     href: "/student/dashboard",
-    icon: "Home",
+    icon: "Settings",
   },
   {
     title: "Register",
@@ -57,7 +64,7 @@ export default function AdminDashboardLayout({
   return (
     <div className="flex">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-100 min-h-screen p-4">
+      <div className="sidebar">
         <nav>
           {navItems.map((item) => {
             // Dynamically get the icon component
